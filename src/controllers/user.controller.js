@@ -31,6 +31,12 @@ router.get('/', async (req, res) => {
     res.status(200).send(user)
 })
 
+router.delete('/:id', async (req, res) => {
+    console.log('removing student')
+    const user = await User.findByIdAndDelete(req.params.id)
+
+    res.status(200).send(user)
+})
 
 
 module.exports = router;
